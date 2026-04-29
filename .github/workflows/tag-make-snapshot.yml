@@ -14,7 +14,9 @@ jobs:
         env:
           PAT: ${{ secrets.FIGMA_REPO_PAT }}
         run: |
-          git clone https://x-access-token:${PAT}@github.com/vaibhav-z-56/Testfigmaversioniing1.git repo
+          git config --global credential.helper store
+          echo "https://vaibhav-z-56:${PAT}@github.com" > ~/.git-credentials
+          git clone https://github.com/vaibhav-z-56/Testfigmaversioniing1.git repo
           cd repo
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
